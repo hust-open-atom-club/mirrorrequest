@@ -1,0 +1,64 @@
+name: Change Delete/修改镜像
+description: Change an exist mirror source/修改一个已存在的镜像源
+title: 修改镜像
+labels: [change, mirror]
+body:
+  - type: markdown
+    id: introduction
+    attributes:
+      value: |
+        Thank you for your interest in HUST mirror. Please fill out the following information to help us understand your request.
+        感谢您对HUST镜像站的兴趣。请填写以下信息以帮助我们了解您的请求。
+
+  - type: checkboxs
+    id: prerequisites
+    attributes: 
+      label: Prerequisites/先决条件
+      options: 
+        - label: |
+            我确认这个镜像源已存在[HUST镜像站](https://mirror.hust.edu.cn)。
+            I am sure that this repo exists in [HUST镜像站](https://mirror.hust.edu.cn).
+          required: true
+        - label: |
+            我有充分的理由修改这个镜像源。
+            I have good reason to modify to this mirror source.
+          required: true
+
+  - type: textarea
+    id: name
+    attributes:
+      label: 镜像简介及名称/Description and name of the Mirror
+      placeholder: |
+        请简要说明要修改的镜像源和镜像源的名称，以便我们更好地了解您的请求。
+        Please briefly explain the mirror source to be modified and the name of the mirror source so that we can better understand your request.
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: 修改理由/Reason for modifiability
+      placeholder: |
+        请简要说明您的修改理由，以便我们更好地了解您的请求。
+        Please briefly explain your reason for modifiability so that we can better understand your request.
+        eg. 上游镜像源已迁移到其他镜像源。
+    validations:
+      required: true
+  - type: textarea
+    id: modifiability
+    attributes:
+      label: 需要修改的内容/Content to be modified
+      placeholder: |
+        请分点说明您需要修改的内容，以便我们更好地了解您的请求。
+        Please explain the content you need to modify in detail so that we can better understand your request.
+        eg. 镜像源地址 from http://foo to http://bar
+  - type: textarea
+    id: note
+    attributes:
+      label: 备注/note
+      placeholder: |
+        请填写其他信息，以便我们更好地了解您的请求。
+        Please fill in other information so that we can better understand your request.
+    validations:
+      required: false
+
+
