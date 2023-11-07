@@ -1,5 +1,5 @@
-name: Mirror Request/请求镜像
-description: Requesting a new mirror source/请求一个新的镜像源
+name: 请求镜像/Request Mirror
+description: 请求一个新的镜像源/Request a new mirror source
 title: 请求镜像
 labels: [request, mirror]
 body:
@@ -7,8 +7,9 @@ body:
     id: introduction
     attributes:
       value: |
-        Thank you for your interest in HUST mirror. Please fill out the following information to help us understand your request.
         感谢您对HUST镜像站的兴趣。请填写以下信息以帮助我们了解您的请求。
+        Thank you for your interest in HUST mirror. Please fill out the following information to help us understand your request.
+        
 
   - type: checkboxes
     id: prerequisites

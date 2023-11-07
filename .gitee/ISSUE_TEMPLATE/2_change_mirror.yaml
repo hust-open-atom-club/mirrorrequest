@@ -1,5 +1,5 @@
-name: Change Delete/修改镜像
-description: Change an exist mirror source/修改一个已存在的镜像源
+name: 修改镜像/Change Mirror
+description: 修改一个已存在的镜像源/Change an existing mirror source
 title: 修改镜像
 labels: [change, mirror]
 body:
@@ -7,8 +7,8 @@ body:
     id: introduction
     attributes:
       value: |
-        Thank you for your interest in HUST mirror. Please fill out the following information to help us understand your request.
         感谢您对HUST镜像站的兴趣。请填写以下信息以帮助我们了解您的请求。
+        Thank you for your interest in HUST mirror. Please fill out the following information to help us understand your request.
 
   - type: checkboxes
     id: prerequisites
@@ -17,7 +17,7 @@ body:
       options: 
         - label: |
             我确认这个镜像源已存在[HUST镜像站](https://mirror.hust.edu.cn)。
-            I am sure that this repo exists in [HUST镜像站](https://mirror.hust.edu.cn).
+            I am sure that this repo exists in [HUST mirror station](https://mirror.hust.edu.cn).
           required: true
         - label: |
             我有充分的理由修改这个镜像源。
@@ -40,7 +40,7 @@ body:
       placeholder: |
         请简要说明您的修改理由，以便我们更好地了解您的请求。
         Please briefly explain your reason for modifiability so that we can better understand your request.
-        eg. 上游镜像源已迁移到其他镜像源。
+        eg. 上游镜像源已迁移到其他镜像源。Upstream mirror source has been migrated to other mirror sources.
     validations:
       required: true
   - type: textarea
@@ -50,7 +50,7 @@ body:
       placeholder: |
         请分点说明您需要修改的内容，以便我们更好地了解您的请求。
         Please explain the content you need to modify in detail so that we can better understand your request.
-        eg. 镜像源地址 from http://foo to http://bar
+        eg. 镜像源地址由 http://foo改变至http://bar。The mirror source address changed from http://foo to http://bar.
   - type: textarea
     id: note
     attributes:
