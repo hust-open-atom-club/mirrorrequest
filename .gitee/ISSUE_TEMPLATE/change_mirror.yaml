@@ -10,7 +10,7 @@ body:
         Thank you for your interest in HUST mirror. Please fill out the following information to help us understand your request.
         感谢您对HUST镜像站的兴趣。请填写以下信息以帮助我们了解您的请求。
 
-  - type: checkboxs
+  - type: checkboxes
     id: prerequisites
     attributes: 
       label: Prerequisites/先决条件
