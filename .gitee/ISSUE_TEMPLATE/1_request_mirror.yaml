@@ -17,8 +17,8 @@ body:
       label: Prerequisites/先决条件
       options: 
         - label: |
-            我已确认这个镜像源从未在 [其他 issues](https://github.com/tuna/issues) 中讨论过。
-            I am sure that this repo has NEVER been discussed in [other issues](https://github.com/tuna/issues).
+            我已确认这个镜像源从未在 [其他 issues](https://gitee.com/hustmirror/mirrorrequest/issues) 中讨论过。
+            I am sure that this repo has NEVER been discussed in [other issues](https://gitee.com/hustmirror/mirrorrequest/issues).
           required: true
         - label: |
             我已确认这个镜像源没有我选择的镜像站上线。
