@@ -1,0 +1,56 @@
+name: 删除镜像/Delete Mirror
+description: 删除一个已存在的镜像源/Delete an existing mirror source
+title: 删除镜像
+labels: [delete, mirror]
+body:
+  - type: markdown
+    id: introduction
+    attributes:
+      value: |
+        感谢您对HUST镜像站的兴趣。请填写以下信息以帮助我们了解您的请求。
+        Thank you for your interest in HUST mirror. Please fill out the following information to help us understand your request.
+
+  - type: checkboxes
+    id: prerequisites
+    attributes: 
+      label: Prerequisites/先决条件
+      options: 
+        - label: |
+            我确认这个镜像源已存在[HUST镜像站](https://mirrors.hust.edu.cn)。
+            I am sure that this repo exists in [HUST mirro station](https://mirrors.hust.edu.cn).
+          required: true
+        - label: |
+            我有充分的理由删除这个镜像源。
+            I have good reason to delete this mirror source.
+          required: true
+
+  - type: textarea
+    id: name
+    attributes:
+      label: 镜像简介及名称/Description and name of the Mirror
+      placeholder: |
+        请简要说明要删除的镜像源和镜像源的名称，以便我们更好地了解您的请求。
+        Please briefly explain the mirror source to be deleted and the name of the mirror source so that we can better understand your request.
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: 删除理由/Reason for deletion
+      placeholder: |
+        请简要说明您的删除理由，以便我们更好地了解您的请求。
+        Please briefly explain your reason for deletion so that we can better understand your request.
+        eg. 上游镜像源已停止维护，已迁移到其他镜像源。Upstream mirror source has been discontinued and has been migrated to other mirror sources.
+    validations:
+      required: true
+  - type: textarea
+    id: note
+    attributes:
+      label: 备注/note
+      placeholder: |
+        请填写其他信息，以便我们更好地了解您的请求。
+        Please fill in other information so that we can better understand your request.
+        eg. 上游镜像源迁移到https://xxx。Upstream mirror source has been migrated to https://xxx.
+    validations:
+      required: false
+
