@@ -1,0 +1,54 @@
+name: 请求镜像/Request Mirror
+description: 请求一个新的镜像源/Request a new mirror source
+title: 请求镜像
+labels: [request, mirror]
+body:
+  - type: markdown
+    id: introduction
+    attributes:
+      value: |
+        感谢您对HUST镜像站的兴趣。请填写以下信息以帮助我们了解您的请求。
+        Thank you for your interest in HUST mirror. Please fill out the following information to help us understand your request.
+        
+
+  - type: checkboxes
+    id: prerequisites
+    attributes: 
+      label: Prerequisites/先决条件
+      options: 
+        - label: |
+            我已确认这个镜像源从未在 [其他 issues](https://github.com/hust-open-atom-club/mirrorrequest/issues) 中讨论过。
+            I am sure that this repo has NEVER been discussed in [other issues](https://github.com/hust-open-atom-club/mirrorrequest/issues).
+          required: true
+        - label: |
+            我已确认这个镜像源没有我选择的镜像站上线。
+            I am sure that this repo has NOT currently be provided by the sites I select.
+          required: true
+
+  - type: textarea
+    id: name
+    attributes:
+      label: 镜像简介及名称/Description and name of the Mirror
+      placeholder: |
+        请简要说明要请求的镜像源和镜像源的名称，以便我们更好地了解您的请求。
+        Please briefly explain the mirror source to be requested and the name of the mirror source so that we can better understand your request.
+    validations:
+      required: true
+  - type: textarea
+    id: upstream
+    attributes:
+      label: 镜像源地址/Upstream URL
+      placeholder: |
+        请填写镜像源的地址。
+        Please fill in the address of the mirror source.
+    validations:
+      required: true
+  - type: textarea
+    id: note
+    attributes:
+      label: 备注/note
+      placeholder: |
+        请填写其他信息，以便我们更好地了解您的请求。
+        Please fill in other information so that we can better understand your request.
+    validations:
+      required: false
