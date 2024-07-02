@@ -34,6 +34,7 @@ body:
         Please briefly explain the mirror source to be requested and the name of the mirror source so that we can better understand your request.
     validations:
       required: true
+      
   - type: textarea
     id: upstream
     attributes:
@@ -43,6 +44,17 @@ body:
         Please fill in the address of the mirror source.
     validations:
       required: true
+
+  - type: textarea
+    id: size
+    attributes:
+      label: 大小/size
+      placeholder: |
+        请填写镜像的大小，以便我们更好地评估您的请求，如果有多个镜像可以用换行分隔。
+        Please fill in the size of the mirror source so that we can better evaluate your request. If you have multiple mirrors, separate each source with a newline.
+    validations:
+      required: false
+
   - type: textarea
     id: note
     attributes:
