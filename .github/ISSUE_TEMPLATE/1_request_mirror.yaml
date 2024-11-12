@@ -22,7 +22,7 @@ body:
           required: true
         - label: |
             我已确认这个镜像源没有我选择的镜像站上线。
-            I am sure that this repo has NOT currently be provided by the sites I select.
+            I am sure that this repo has NOT currently been provided by the sites I select.
           required: true
 
   - type: textarea
@@ -51,7 +51,7 @@ body:
       label: 大小/size
       placeholder: |
         请填写镜像的大小，以便我们更好地评估您的请求，如果有多个镜像可以用换行分隔。
-        Please fill in the size of the mirror source so that we can better evaluate your request. If you have multiple mirrors, separate each source with a newline.
+        Please fill in the mirror source size so we can better evaluate your request. If you have multiple mirrors, separate each source with a new line.
     validations:
       required: false
 
