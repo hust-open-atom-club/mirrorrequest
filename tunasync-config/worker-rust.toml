@@ -1,0 +1,55 @@
+[global]
+name = "cse_mirror2_rust"
+log_dir = "/log/{{.Name}}"
+mirror_dir = "/data"
+concurrent = 10
+retry = 1
+interval = 120
+
+[docker]
+enable = true
+
+[manager]
+api_base = "http://manager:12345"
+token = ""
+ca_cert = ""
+
+[cgroup]
+enable = false
+
+[server]
+hostname = "workerrust"
+listen_addr = "0.0.0.0"
+listen_port = 6000
+ssl_cert = ""
+ssl_key = ""
+
+[[mirrors]]
+name = "crates"
+provider = "command"
+docker_image = "panamaxrs/panamax"
+docker_volumes = [
+	"/mnt/mirror/data/crates:/mirror/crates",
+	"/mnt/mirror/data/rustup/rustup:/mirror/rustup",
+	"/mnt/mirror/data/rustup/dist:/mirror/dist",
+	"/mnt/mirror/data/crates.io-index:/mirror/crates.io-index",
+	"/mnt/mirror/deploy/mirror.toml:/mirror/mirror.toml"
+]
+docker_options = [
+	"--entrypoint="
+]
+command = "timeout 3h /usr/local/bin/panamax sync /mirror"
+upstream = "https://crates.io/api/v1/crates"
+# memory_limit = "256M"
+
+[[mirrors]]
+name = "rustup"
+provider = "command"
+command = "true"
+upstream = "https://static.rust-lang.org"
+
+[[mirrors]]
+name = "crates.io-index"
+provider = "command"
+command = "true"
+upstream = "https://github.com/rust-lang/crates.io-index"
