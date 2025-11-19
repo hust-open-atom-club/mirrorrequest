@@ -510,7 +510,6 @@ name = "nix"
 interval = 1440
 provider = "command"
 upstream = "s3://nix-releases/nix/"
-command = "/home/scripts/nix.sh"
-docker_image = "tunathu/tunasync-scripts:latest"
+command = "/tunasync-scripts/nix.sh"
         [mirrors.env]
         MIRROR_BASE_URL = 'https://mirrors.hust.edu.cn/nix/'
