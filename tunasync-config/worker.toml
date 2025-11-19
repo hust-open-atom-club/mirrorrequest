@@ -497,3 +497,11 @@ name = "manjaro"
 provider = "rsync"
 upstream = "rsync://mirror.yandex.ru/mirrors/manjaro/"
 memory_limit = "256M"
+
+
+[[mirrors]]
+name = "nixpkgs.git"
+provider = "command"
+command = "/tunasync-scripts/git.sh"
+upstream = "https://github.com/NixOS/nixpkgs.git"
+size_pattern = "Total size is ([0-9\\.]+[KMGTP]?)"
