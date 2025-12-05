@@ -166,12 +166,6 @@ upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/kali-images/"
 rsync_options = [ "--delete-excluded" ] # delete .~tmp~ folders
 memory_limit = "256M"
 
-[[mirrors]]
-name = "anolis"
-provider = "rsync"
-upstream = "rsync://rsync_user@rsync.openanolis.cn/anolis/"
-rsync_options = [ "--delete-excluded", "--exclude", "/23.1", "--exclude", "/23.0","--exclude", "/8.2","--exclude", "/8.4","--exclude", "/8.6","--exclude", "/8.8", "--password-file=/secrets/anolis.pass" ] 
-memory_limit = "256M"
 
 [[mirrors]]
 name = "gcc.git"
@@ -317,12 +311,6 @@ upstream = "rsync://openkylin@archive.openkylin.top/releases/"
 interval = 240
 rsync_options = [ "--password-file=/secrets/openkylin.pass" ]
 
-[[mirrors]]
-name = "anolis"
-provider = "rsync"
-upstream = "rsync://rsync_user@rsync.openanolis.cn/anolis/"
-rsync_options = [ "--delete-excluded", "--exclude", "/23", "--exclude", "/23.0", "--password-file=/secrets/anolis.pass" ] 
-memory_limit = "256M"
 
 [[mirrors]]
 name = "ubuntukylin"
@@ -497,6 +485,11 @@ name = "manjaro"
 provider = "rsync"
 upstream = "rsync://mirror.yandex.ru/mirrors/manjaro/"
 memory_limit = "256M"
+
+[[mirrors]]
+name = "radxa-deb"
+provider = "rsync"
+upstream = "rsync://rsync.radxa.com/radxa/radxa-deb/"
 
 [[mirrors]]
 name = "github-release"
