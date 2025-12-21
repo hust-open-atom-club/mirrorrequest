@@ -498,3 +498,26 @@ upstream = "https://api.github.com/repos/"
 command = "/tunasync-scripts/github-release.py --workers 5"
 size_pattern = "Total size is ([0-9\\.]+[KMGTP]?)"
 interval = 720
+
+[[mirrors]]
+name = "nixpkgs.git"
+provider = "command"
+command = "/tunasync-scripts/git.sh"
+upstream = "https://github.com/NixOS/nixpkgs.git"
+size_pattern = "Total size is ([0-9\\.]+[KMGTP]?)"
+
+[[mirrors]]
+name = "nix"
+interval = 1440
+provider = "command"
+upstream = "s3://nix-releases/nix/"
+command = "/tunasync-scripts/nix.sh"
+        [mirrors.env]
+        MIRROR_BASE_URL = 'https://mirrors.hust.edu.cn/nix/'
+
+[[mirrors]]
+name = "nix-channels"
+interval = 300
+provider = "command"
+upstream = "https://nixos.org/channels"
+command = "timeout 20h /tunasync-scripts/nix-channels.py"
