@@ -1,0 +1,18 @@
+name: 'Lint-TOML'
+on:
+  pull_request:
+    paths:
+      - '**/*.toml'
+      
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout code'
+        uses: actions/checkout@v0.1
+      - name: 'Lint tunasync config'
+        uses: tsigouris007/action-tomllint@master
+        with:
+          tomllint_files: './tunasync-config/*'
+          tomllint_comment: false
+          tomllint_ruleset: standard
