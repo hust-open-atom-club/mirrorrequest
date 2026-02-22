@@ -498,3 +498,8 @@ upstream = "https://api.github.com/repos/"
 command = "/tunasync-scripts/github-release.py --workers 5"
 size_pattern = "Total size is ([0-9\\.]+[KMGTP]?)"
 interval = 720
+
+[[mirrors]]
+name = "aosc-os"
+provider = "rsync"
+upstream = "rsync://repo-us.aosc.io/anthon/"
