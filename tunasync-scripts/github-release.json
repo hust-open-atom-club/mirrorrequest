@@ -1,5 +1,6 @@
 [
   "llvm/llvm-project",
   "rustdesk/rustdesk",
-  "ip7z/7zip"
+  "ip7z/7zip",
+  "niXman/mingw-builds-binaries"
 ]
