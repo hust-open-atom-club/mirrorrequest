@@ -524,17 +524,6 @@ rsync_options = [ "--delete-excluded" ]
 memory_limit = "256M"
 use_ipv6 = true
 
-
-[[mirrors]]
-name = "gentoo-portage"
-provider = "rsync"
-# upstream = "rsync://rsync.jp.gentoo.org/gentoo-portage/"
-upstream = "rsync://rsync.jp.gentoo.org/gentoo-portage/"
-# upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/gentoo-portage/"
-rsync_options = [ "--delete-excluded" ]
-memory_limit = "256M"
-
-
 [[mirrors]]
 name = "gentoo-portage-prefix"
 provider = "rsync"
@@ -542,7 +531,6 @@ upstream = "rsync://rsync.prefix.bitzolder.nl/gentoo-portage-prefix/"
 # upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/gentoo-portage-prefix/"
 rsync_options = [ "--delete-excluded" ]
 memory_limit = "256M"
-
 
 [[mirrors]]
 name = "gentoo-portage.git"
@@ -646,7 +634,6 @@ name = "fdroid"
 provider = "rsync"
 upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/fdroid/"
 
-
 [[mirrors]]
 name = "guix.git"
 provider = "command"
@@ -680,8 +667,6 @@ upstream = "rsync://rsync.radxa.com/radxa/radxa-deb/"
 # upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/bjlx/"
 # memory_limit = "256M"
 
-
-
 [[mirrors]]
 name = "github-release"
 provider = "command"
@@ -690,7 +675,6 @@ command = "/tunasync-scripts/github-release.py --workers 5"
 size_pattern = "Total size is ([0-9\\.]+[KMGTP]?)"
 interval = 720
 
-
 [[mirrors]]
 name = "mozilla"
 provider = "command"
@@ -698,7 +682,6 @@ upstream = "https://packages.mozilla.org/"
 command = "/tunasync-scripts/mozilla.sh"
 interval = 1440
 memory_limit = "256M"
-
 
 [[mirrors]]
 name = "aosc-os"
