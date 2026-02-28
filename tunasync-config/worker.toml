@@ -706,3 +706,11 @@ provider = "rsync"
 upstream = "rsync://repo-us.aosc.io/anthon/"
 interval = 1440
 memory_limit = "256M"
+
+[[mirrors]]
+name = "cygwin"
+provider = "command"
+upstream = "https://mirrors.huaweicloud.com/cygwin/"
+command = "/tunasync-scripts/lftp.sh"
+interval = 420
+memory_limit = "256M"
