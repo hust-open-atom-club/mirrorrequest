@@ -505,3 +505,8 @@ provider = "command"
 upstream = "https://packages.mozilla.org/"
 command = "/tunasync-scripts/mozilla.sh"
 interval = 1440
+
+[[mirrors]]
+name = "aosc-os"
+provider = "rsync"
+upstream = "rsync://repo-us.aosc.io/anthon/"
