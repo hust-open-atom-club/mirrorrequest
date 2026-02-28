@@ -26,13 +26,15 @@ ssl_key = ""
 name = "openeuler"
 provider = "rsync"
 upstream = "rsync://repo.openeuler.openatom.cn/openeuler/"
+# upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/openeuler/"
+# use_ipv6 = false
 interval = 240
 
 [[mirrors]]
 name = "linux.git"
 provider = "command"
 command = "/tunasync-scripts/git.sh"
-upstream = "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git"
+upstream = "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git" # docker_image = "tunathu/tunasync-scripts:latest"
 size_pattern = "Total size is ([0-9\\.]+[KMGTP]?)"
 
 [[mirrors]]
@@ -67,6 +69,7 @@ size_pattern = "Total size is ([0-9\\.]+[KMGTP]?)"
         WORKING_DIR_BASE = "/data/"
         GENERATED_SCRIPT = "/data/qemu/qemu.sh"
         RECURSIVE = "1"
+        # HTTPS_PROXY = "http://10.12.190.56:8010"
 
 [[mirrors]]
 name = "archlinux"
@@ -119,6 +122,8 @@ command = "/tunasync-scripts/git-repo.sh"
 upstream = "https://mirrors.tuna.tsinghua.edu.cn/git/git-repo"
 size_pattern = "Total size is ([0-9\\.]+[KMGTP]?)"
 fail_on_match = "fatal: "
+# docker_image = "tunathu/tunasync-scripts:latest"
+
 
 [[mirrors]]
 name = "ubuntu-releases"
@@ -128,6 +133,37 @@ use_ipv6 = true
 interval = 480
 rsync_options = [ "--delete-excluded" ]
 
+# [[mirrors]]
+# name = "homebrew"
+# provider = "command"
+# command = "/tunasync-scripts/homebrew.sh"
+# upstream = "https://github.com/Homebrew"
+# # docker_image = "tunathu/tunasync-scripts:latest"
+# size_pattern = "Total size is ([0-9\\.]+[KMGTP]?)"
+
+# [[mirrors]]
+# name = "raspbian"
+# provider = "two-stage-rsync"
+# stage1_profile = "debian"
+# upstream = "rsync://archive.raspbian.org/archive/"
+# rsync_options = [ "--delete-excluded" ] # delete .~tmp~ folders
+# memory_limit = "256M"
+
+# [[mirrors]]
+# name = "raspberrypi"
+# provider = "two-stage-rsync"
+# stage1_profile = "debian"
+# # upstream = "rsync://apt-repo.raspberrypi.org/archive/debian/"
+# upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/raspberrypi/"
+# memory_limit = "256M"
+
+# [[mirrors]]
+# name = "raspbian-addons"
+# provider = "rsync"
+# upstream = "rsync://ftp.iij.ad.jp/pub/osdn.jp/storage/g/r/ra/raspbian-addons/"
+# memory_limit = "256M"
+# rsync_options = [ "--delete-excluded" ]
+
 [[mirrors]]
 name = "kali"
 provider = "two-stage-rsync"
@@ -136,6 +172,7 @@ upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/kali/"
 rsync_options = [ "--delete-excluded" ] # delete .~tmp~ folders
 memory_limit = "256M"
 
+
 [[mirrors]]
 name = "debian-cd"
 provider = "rsync"
@@ -143,6 +180,13 @@ upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/debian-cd/"
 use_ipv6 = true
 interval = 480
 rsync_options = [ "--delete-excluded" ]
+
+# [[mirrors]]
+# name = "debian-nonfree"
+# provider = "rsync"
+# upstream = "rsync://cdimage.debian.org/cdimage-unofficial/non-free/"
+# interval = 480
+# rsync_options = [ "--delete-excluded", "--exclude=archive/" ]
 
 [[mirrors]]
 name = "debian-security"
@@ -156,8 +200,25 @@ name = "ohmyzsh.git"
 provider = "command"
 command = "/tunasync-scripts/git.sh"
 upstream = "https://gitee.com/mirrors/oh-my-zsh.git"
+# docker_image = "tunathu/tunasync-scripts:latest"
 size_pattern = "Total size is ([0-9\\.]+[KMGTP]?)"
 exec_on_success = [ "/worker-scripts/post-ohmyzsh.sh" ]
+
+# [[mirrors]]
+# name = "crates.io-index.git"
+# provider = "command"
+# command = "/tunasync-scripts/git.sh"
+# upstream = "https://github.com/rust-lang/crates.io-index.git"
+# # docker_image = "tunathu/tunasync-scripts:latest"
+# size_pattern = "Total size is ([0-9\\.]+[KMGTP]?)"
+
+# [[mirrors]]
+# name = "gcc.git"
+# provider = "command"
+# command = "/tunasync-scripts/git.sh"
+# upstream = "git://gcc.gnu.org/git/gcc.git"
+# # docker_image = "tunathu/tunasync-scripts:latest"
+# size_pattern = "Total size is ([0-9\\.]+[KMGTP]?)"
 
 [[mirrors]]
 name = "kali-images"
@@ -166,20 +227,29 @@ upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/kali-images/"
 rsync_options = [ "--delete-excluded" ] # delete .~tmp~ folders
 memory_limit = "256M"
 
-
 [[mirrors]]
 name = "gcc.git"
 provider = "command"
 command = "/tunasync-scripts/git.sh"
+# upstream = "git://gcc.gnu.org/git/gcc.git"
 upstream = "http://mirrors.tuna.tsinghua.edu.cn/git/gcc.git"
+# docker_image = "tunathu/tunasync-scripts:latest"
 size_pattern = "Total size is ([0-9\\.]+[KMGTP]?)"
 
 [[mirrors]]
 name = "CTAN"
 provider = "rsync"
+# upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/CTAN/"
+# upstream = "rsync://rsync.dante.ctan.org/CTAN"
 upstream = "rsync://rsync.dante.ctan.org/CTAN/"
 rsync_options = [ "--delete-excluded" ] # delete .~tmp~ folders
 memory_limit = "256M"
+
+# [[mirrors]]
+# name = "loongson"
+# provider = "rsync"
+# upstream = "rsync://rsync.anheng.com.cn/loongson/"
+# rsync_options = [ "--delete-excluded" ] # delete .~tmp~ folders
 
 [[mirrors]]
 name = "llvm-project.git"
@@ -205,12 +275,14 @@ memory_limit = "256M"
 [[mirrors]]
 name = "linuxmint"
 provider = "rsync"
+# upstream = "rsync://mirrors.kernel.org/linuxmint-packages/"
 upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/linuxmint/"
 memory_limit = "256M"
 
 [[mirrors]]
 name = "linuxmint-cd"
 provider = "rsync"
+# upstream = "rsync://mirrors.kernel.org/linuxmint/"
 upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/linuxmint-cd/"
 memory_limit = "256M"
 
@@ -225,24 +297,35 @@ size_pattern = "size-sum: ([0-9\\.]+[KMGTP])"
 name = "lwn.git"
 provider = "command"
 command = "/tunasync-scripts/git.sh"
-upstream = "git://git.lwn.net/linux.git"
+upstream = "git://git.lwn.net/linux.git" # docker_image = "tunathu/tunasync-scripts:latest"
 size_pattern = "Total size is ([0-9\\.]+[KMGTP]?)"
 
 
 [[mirrors]]
 name = "kernel.org"
 provider = "rsync"
+# upstream = "rsync://rsync.kernel.org/pub/"
 upstream = "rsync://mirrors.ustc.edu.cn/kernel.org/"
 
 [[mirrors]]
 name = "docker-ce"
 provider = "command"
 upstream = "https://download.docker.com/"
+#upstream = "http://mirrors.ustc.edu.cn/docker-ce/"
+#upstream = "http://mirrors.tuna.tsinghua.edu.cn/docker-ce/"
 command = "timeout 3h /tunasync-scripts/docker-ce.py --workers 10 --fast-skip"
+# command = "/tunasync-scripts/docker-ce.py --workers 10 --fast-skip"
 interval = 1440
 	[mirrors.env]
 	HTTP_PROXY = "http://C502:OczPiFo3wZvI@10.12.190.56:8012"
 	HTTPS_PROXY = "http://C502:OczPiFo3wZvI@10.12.190.56:8012"
+
+#[[mirrors]]
+#name = "moby.git"
+#provider = "command"
+#upstream = "https://github.com/moby/moby.git"
+#command = "/tunasync-scripts/git.sh"
+#size_pattern = "Total size is ([0-9\\.]+[KMGTP]?)"
 
 [[mirrors]]
 name = "archlinuxcn"
@@ -260,13 +343,16 @@ memory_limit = "256M"
 [[mirrors]]
 name = "CRAN"
 provider = "rsync"
+# upstream = "rsync://cran.r-project.org/CRAN/"
 upstream = "cran-rsync@cran.r-project.org:./"
+# upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/CRAN/"
 rsync_options = [ "-e", "ssh -i /secrets/mirror.rsa -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null", "--delete-excluded" ] # delete .~tmp~ folders
 memory_limit = "256M"
 
 [[mirrors]]
 name = "alpine"
 provider = "rsync"
+# upstream = "rsync://rsync.alpinelinux.org/alpine/"
 upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/alpine/"
 memory_limit = "256M"
 
@@ -283,9 +369,25 @@ upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/CPAN/"
 rsync_options = [ "--delete-excluded" ] # delete .~tmp~ folders
 memory_limit = "256M"
 
+###############################
+##### OLD worker2 content #####
+#####                     #####
+#####                     #####
+###############################
+#####
+##### TODO: uncomment pypi
+
+#[[mirrors]]
+#name = "golang"
+#provider = "rsync"
+#upstream = "rsync://mirrors.ustc.edu.cn/golang/"
+#rsync_options = [ "--delete-excluded" ] # delete .~tmp~ folders
+#memory_limit = "256M"
+
 [[mirrors]]
 name = "pypi"
 provider = "command"
+# upstream = "https://pypi.python.org/"
 upstream = "https://pypi.tuna.tsinghua.edu.cn/"
 command = "/tunasync-scripts/pypi.sh"
 interval = 5
@@ -312,12 +414,30 @@ interval = 240
 rsync_options = [ "--password-file=/secrets/openkylin.pass" ]
 
 
+##[[mirrors]]
+##name = "CRAN"
+#provider = "rsync"
+# upstream = "rsync://cran.r-project.org/CRAN/"
+#upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/CRAN/"
+#rsync_options = [ "--delete-excluded" ] # delete .~tmp~ folders
+#memory_limit = "256M"
+
+
 [[mirrors]]
 name = "ubuntukylin"
 provider = "rsync"
 upstream = "rsync://mirror@archive.ubuntukylin.com/ubuntukylin/"
 rsync_options = [ "--delete-excluded", "--password-file=/secrets/ubuntukylin.pass"  ] # delete .~tmp~ folders
 memory_limit = "256M"
+
+
+##[[mirrors]]
+#name = "ubuntukylin-cdimage"
+#provider = "rsync"
+#upstream = "rsync://mirror@cdimage.ubuntukylin.com/releases/professional/"
+#rsync_options = [ "--delete-excluded", "--password-file=/secrets/ubuntukylin.pass" ] # delete .~tmp~ folders
+#memory_limit = "256M"
+
 
 [[mirrors]]
 name = "virtualbox"
@@ -326,6 +446,12 @@ provider = "command"
 upstream = "http://download.virtualbox.org/virtualbox/"
 command = "/tunasync-scripts/virtualbox.sh"
 
+#[[mirrors]]
+#name = "buildroot"
+#provider = "command"
+#upstream = "http://buildroot.org/downloads/"
+#command = "/tunasync-scripts/lftp.sh"
+
 [[mirrors]]
 name = "gnu"
 provider = "rsync"
@@ -333,18 +459,55 @@ upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/gnu/"
 rsync_options = [ "--delete-excluded" ] # delete .~tmp~ folders
 memory_limit = "256M"
 
+#[[mirrors]]
+#name = "CPAN"
+#provider = "rsync"
+#upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/CPAN/"
+#rsync_options = [ "--delete-excluded" ] # delete .~tmp~ folders
+#memory_limit = "256M"
+
+#[[mirrors]]
+#name = "alpine"
+#provider = "rsync"
+# upstream = "rsync://rsync.alpinelinux.org/alpine/"
+#upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/alpine/"
+#memory_limit = "256M"
+
+#[[mirrors]]
+#name = "archlinuxcn"
+#provider = "rsync"
+## upstream = "rsync://rsync.alpinelinux.org/alpine/"
+#upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/"
+#memory_limit = "256M"
+
+
 [[mirrors]]
 name = "ubuntu-ports"
 provider = "two-stage-rsync"
 stage1_profile = "debian"
+# upstream = "rsync://ports.ubuntu.com/ubuntu-ports/"
 upstream = "rsync://ports.ubuntu.com/ubuntu-ports/"
+# upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/"
 rsync_options = [ "--delete-excluded" ]
+# exclude_file = "/etc/excludes/ubuntu-ports-exclude.txt"
 memory_limit = "256M"
 use_ipv6 = true
+
+#[[mirrors]]
+#name = "anaconda"
+#provider = "command"
+#upstream = "https://mirrors.tuna.tsinghua.edu.cn/anaconda/"
+#command = "/tunasync-scripts/anaconda.py --delete"
+#size_pattern = "Total size is ([0-9\\.]+[KMGTP]?)"
+#interval = 720
+#use_ipv6 = true
+
 
 [[mirrors]]
 name = "OpenBSD"
 provider = "rsync"
+# upstream = "rsync://ftp.jaist.ac.jp/pub/OpenBSD/"
+# upstream = "rsync://ftp.jaist.ac.jp/pub/OpenBSD/"
 upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/OpenBSD/"
 rsync_options = [ "--delete-excluded" ]
 memory_limit = "256M"
@@ -354,6 +517,8 @@ use_ipv6 = true
 [[mirrors]]
 name = "gentoo"
 provider = "rsync"
+# upstream = "rsync://ftp.iij.ad.jp/pub/linux/gentoo/"
+# upstream = "rsync://ftp.iij.ad.jp/pub/linux/gentoo/"
 upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/gentoo/"
 rsync_options = [ "--delete-excluded" ]
 memory_limit = "256M"
@@ -363,7 +528,9 @@ use_ipv6 = true
 [[mirrors]]
 name = "gentoo-portage"
 provider = "rsync"
+# upstream = "rsync://rsync.jp.gentoo.org/gentoo-portage/"
 upstream = "rsync://rsync.jp.gentoo.org/gentoo-portage/"
+# upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/gentoo-portage/"
 rsync_options = [ "--delete-excluded" ]
 memory_limit = "256M"
 
@@ -372,6 +539,7 @@ memory_limit = "256M"
 name = "gentoo-portage-prefix"
 provider = "rsync"
 upstream = "rsync://rsync.prefix.bitzolder.nl/gentoo-portage-prefix/"
+# upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/gentoo-portage-prefix/"
 rsync_options = [ "--delete-excluded" ]
 memory_limit = "256M"
 
@@ -379,6 +547,7 @@ memory_limit = "256M"
 [[mirrors]]
 name = "gentoo-portage.git"
 provider = "command"
+#upstream = "https://github.com/gentoo-mirror/gentoo.git"
 upstream = "https://anongit.gentoo.org/git/repo/gentoo.git"
 command = "/tunasync-scripts/git.sh"
 size_pattern = "Total size is ([0-9\\.]+[KMGTP]?)"
@@ -387,6 +556,7 @@ size_pattern = "Total size is ([0-9\\.]+[KMGTP]?)"
 [[mirrors]]
 name = "mxlinux"
 provider = "rsync"
+# upstream = "rsync://rsuser@iso.mxrepo.com/workspace/"
 upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/mxlinux/"
 rsync_options = [ "--delete-excluded" ]
 memory_limit = "256M"
@@ -396,17 +566,28 @@ use_ipv6 = true
 [[mirrors]]
 name = "mxlinux-isos"
 provider = "rsync"
+# upstream = "rsync://downstreamtestuser@rsync-mxlinux.org/MX-Linux/"
 upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/mxlinux-isos/"
 rsync_options = [ "--delete-excluded" ]
 memory_limit = "256M"
 use_ipv6 = true
 
+
 [[mirrors]]
 name = "msys2"
 provider = "rsync"
+# upstream = "rsync://repo.msys2.org/builds/"
 upstream = "rsync://repo.msys2.org/builds/"
+# upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/msys2/"
 rsync_options = [ "--delete-excluded" ]
 memory_limit = "256M"
+
+# [[mirrors]]
+# name = "core-oss"
+# provider = "command"
+# command = "sh -c 'GIT_SH=/tunasync-scripts/git.sh /worker-scripts/coreoss.py /worker-scripts/coreoss.list'"
+# upstream = "<MULTIPLE>"
+# size_pattern = "Total size in summary is ([0-9\\.]+[KMGTP]?)"
 
 [[mirrors]]
 name = "rocky"
@@ -457,12 +638,14 @@ name = "kernel-doc-zh.git"
 provider = "command"
 command = "/tunasync-scripts/git.sh"
 upstream = "git://git.kernel.org/pub/scm/linux/kernel/git/alexs/linux.git"
+# docker_image = "tunathu/tunasync-scripts:latest"
 size_pattern = "Total size is ([0-9\\.]+[KMGTP]?)"
 
 [[mirrors]]
 name = "fdroid"
 provider = "rsync"
 upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/fdroid/"
+
 
 [[mirrors]]
 name = "guix.git"
@@ -491,6 +674,14 @@ name = "radxa-deb"
 provider = "rsync"
 upstream = "rsync://rsync.radxa.com/radxa/radxa-deb/"
 
+# [[mirrors]]
+# name = "bjlx"
+# provider = "rsync"
+# upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/bjlx/"
+# memory_limit = "256M"
+
+
+
 [[mirrors]]
 name = "github-release"
 provider = "command"
@@ -499,14 +690,19 @@ command = "/tunasync-scripts/github-release.py --workers 5"
 size_pattern = "Total size is ([0-9\\.]+[KMGTP]?)"
 interval = 720
 
+
 [[mirrors]]
 name = "mozilla"
 provider = "command"
 upstream = "https://packages.mozilla.org/"
 command = "/tunasync-scripts/mozilla.sh"
 interval = 1440
+memory_limit = "256M"
+
 
 [[mirrors]]
 name = "aosc-os"
 provider = "rsync"
 upstream = "rsync://repo-us.aosc.io/anthon/"
+interval = 1440
+memory_limit = "256M"
