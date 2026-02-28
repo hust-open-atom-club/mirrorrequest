@@ -1,4 +1,8 @@
 blank_issues_enabled: false
 contact_link:
-  - name: HUST镜像站
+  - name: 官网
     url: https://mirrors.hust.edu.cn
+  - name: 邮箱
+    url: mailto:mirror_support@hust.edu.cn
+  - name: QQ群（群号：1072375488）
+    url: https://qm.qq.com/q/dK2HfbJLYk
