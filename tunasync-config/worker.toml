@@ -684,8 +684,8 @@ interval = 1440
 memory_limit = "256M"
 
 [[mirrors]]
-name = "aosc-os"
+name = "anthon"
 provider = "rsync"
-upstream = "rsync://repo-us.aosc.io/anthon/"
+upstream = "rsync://mirrors.nju.edu.cn/anthon/"
 interval = 1440
 memory_limit = "256M"
