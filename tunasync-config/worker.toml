@@ -708,9 +708,8 @@ interval = 1440
 memory_limit = "256M"
 
 [[mirrors]]
-name = "cygwin"
-provider = "command"
-upstream = "https://mirrors.huaweicloud.com/cygwin/"
-command = "/tunasync-scripts/lftp.sh"
+name = "aosc-os"
+provider = "rsync"
+upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/sourceware/cygwin/"
 interval = 420
 memory_limit = "256M"
