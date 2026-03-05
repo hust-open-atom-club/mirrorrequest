@@ -305,7 +305,7 @@ size_pattern = "Total size is ([0-9\\.]+[KMGTP]?)"
 name = "kernel.org"
 provider = "rsync"
 # upstream = "rsync://rsync.kernel.org/pub/"
-upstream = "rsync://mirrors.ustc.edu.cn/kernel.org/"
+upstream = "rsync://mirrors.nju.edu.cn/kernel.org/"
 
 [[mirrors]]
 name = "docker-ce"
