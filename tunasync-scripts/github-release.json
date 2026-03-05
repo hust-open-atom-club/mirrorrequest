@@ -2,5 +2,6 @@
   "llvm/llvm-project",
   "rustdesk/rustdesk",
   "ip7z/7zip",
-  "niXman/mingw-builds-binaries"
+  "niXman/mingw-builds-binaries",
+  "obsproject/obs-studio"
 ]
