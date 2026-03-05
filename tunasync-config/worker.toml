@@ -638,7 +638,7 @@ upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/fdroid/"
 name = "guix.git"
 provider = "command"
 command = "/tunasync-scripts/git.sh"
-upstream = "https://git.savannah.gnu.org/git/guix.git"
+upstream = "https://codeberg.org/guix/guix.git"
 size_pattern = "Total size is ([0-9\\.]+[KMGTP]?)"
 
 [[mirrors]]
