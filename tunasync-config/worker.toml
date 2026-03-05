@@ -708,7 +708,7 @@ interval = 1440
 memory_limit = "256M"
 
 [[mirrors]]
-name = "aosc-os"
+name = "cygwin"
 provider = "rsync"
 upstream = "rsync://mirrors.tuna.tsinghua.edu.cn/sourceware/cygwin/"
 interval = 420
