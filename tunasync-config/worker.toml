@@ -69,7 +69,6 @@ size_pattern = "Total size is ([0-9\\.]+[KMGTP]?)"
         WORKING_DIR_BASE = "/data/"
         GENERATED_SCRIPT = "/data/qemu/qemu.sh"
         RECURSIVE = "1"
-        # HTTPS_PROXY = "none"
 
 [[mirrors]]
 name = "archlinux"
@@ -311,21 +310,8 @@ upstream = "rsync://mirrors.ustc.edu.cn/kernel.org/"
 name = "docker-ce"
 provider = "command"
 upstream = "https://download.docker.com/"
-#upstream = "http://mirrors.ustc.edu.cn/docker-ce/"
-#upstream = "http://mirrors.tuna.tsinghua.edu.cn/docker-ce/"
 command = "timeout 3h /tunasync-scripts/docker-ce.py --workers 10 --fast-skip"
-# command = "/tunasync-scripts/docker-ce.py --workers 10 --fast-skip"
 interval = 1440
-	[mirrors.env]
-	HTTP_PROXY = "none"
-	HTTPS_PROXY = "none"
-
-#[[mirrors]]
-#name = "moby.git"
-#provider = "command"
-#upstream = "https://github.com/moby/moby.git"
-#command = "/tunasync-scripts/git.sh"
-#size_pattern = "Total size is ([0-9\\.]+[KMGTP]?)"
 
 [[mirrors]]
 name = "archlinuxcn"
