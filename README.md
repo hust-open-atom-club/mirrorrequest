@@ -1,5 +1,8 @@
 # MirrorRequest
 
+[![JOIN QQ](https://img.shields.io/badge/Join_QQ-%E5%8D%8E%E7%A7%91%E5%A4%A7%E5%BC%80%E6%BA%90%E9%95%9C%E5%83%8F%E7%AB%99%E6%8A%80%E6%9C%AF%E4%BA%A4%E6%B5%81%E7%BE%A4-white?style=for-the-badge&color=76bad9&logo=qq&logoColor=76bad9)]( https://qm.qq.com/q/GxLlEDSdMI )
+[![JOIN FEISHU](https://img.shields.io/badge/Join_Feishu-%E5%BC%80%E6%BA%90%E9%95%9C%E5%83%8F%E7%AB%99%E7%82%B9%E8%BF%90%E7%BB%B4-white?style=for-the-badge&color=76bad9)](https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=66ajb326-0a9d-41ea-81a7-2b8a937ee6fc)
+
 本仓库主要用于收集[华中科技大学开源镜像站](https://mirrors.hust.edu.cn)用户增删改镜像需求，方便，快捷的管理和追踪需求。
 
 ## 反馈问题
