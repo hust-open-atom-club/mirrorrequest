@@ -321,10 +321,10 @@ memory_limit = "256M"
 
 [[mirrors]]
 name = "golang"
-provider = "rsync"
-upstream = "rsync://mirrors.ustc.edu.cn/golang/"
-rsync_options = [ "--delete-excluded" ] # delete .~tmp~ folders
-memory_limit = "256M"
+provider = "command"
+upstream = "https://go.dev/dl/"
+command = "/tunasync-scripts/golang.py --workers 10"
+interval = 1440
 
 [[mirrors]]
 name = "CRAN"
@@ -362,13 +362,6 @@ memory_limit = "256M"
 ###############################
 #####
 ##### TODO: uncomment pypi
-
-#[[mirrors]]
-#name = "golang"
-#provider = "rsync"
-#upstream = "rsync://mirrors.ustc.edu.cn/golang/"
-#rsync_options = [ "--delete-excluded" ] # delete .~tmp~ folders
-#memory_limit = "256M"
 
 [[mirrors]]
 name = "pypi"
