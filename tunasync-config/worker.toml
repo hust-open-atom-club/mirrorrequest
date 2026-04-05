@@ -304,7 +304,7 @@ size_pattern = "Total size is ([0-9\\.]+[KMGTP]?)"
 name = "kernel.org"
 provider = "rsync"
 # upstream = "rsync://rsync.kernel.org/pub/"
-upstream = "rsync://mirrors.ustc.edu.cn/kernel.org/"
+upstream = "rsync://rsync.mirrors.ustc.edu.cn/kernel.org/"
 
 [[mirrors]]
 name = "docker-ce"
@@ -559,7 +559,7 @@ memory_limit = "256M"
 [[mirrors]]
 name = "rocky"
 provider = "rsync"
-upstream = "rsync://mirrors.ustc.edu.cn/rocky/"
+upstream = "rsync://rsync.mirrors.ustc.edu.cn/rocky/"
 rsync_options = [ "--delete-excluded" ]
 memory_limit = "256M"
 
