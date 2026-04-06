@@ -310,7 +310,7 @@ upstream = "rsync://rsync.mirrors.ustc.edu.cn/kernel.org/"
 name = "docker-ce"
 provider = "command"
 upstream = "https://download.docker.com/"
-command = "timeout 3h /tunasync-scripts/docker-ce.py --workers 10 --fast-skip"
+command = "/tunasync-scripts/docker-ce.py --workers 10 --fast-skip"
 interval = 1440
 
 [[mirrors]]
