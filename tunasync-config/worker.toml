@@ -670,6 +670,13 @@ interval = 1440
 memory_limit = "256M"
 
 [[mirrors]]
+name = "cygwin"
+provider = "rsync"
+upstream = "rsync://mirrors.nju.edu.cn/cygwin/"
+interval = 120
+memory_limit = "256M"
+
+[[mirrors]]
 name = "proxmox"
 interval = 1440
 provider = "command"
