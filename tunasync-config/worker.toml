@@ -683,3 +683,17 @@ provider = "command"
 upstream = "http://download.proxmox.com"
 command = "/tunasync-scripts/proxmox.sh"
 memory_limit = "256M"
+
+[[mirrors]]
+name = "eweos"
+provider = "rsync"
+upstream = "rsync://os-repo-rsync.ewe.moe/eweos/"
+interval = 720
+memory_limit = "256M"
+
+[[mirrors]]
+name = "eweos-images"
+provider = "rsync"
+upstream = "rsync://os-repo-rsync.ewe.moe/eweos-images/"
+interval = 720
+memory_limit = "256M"
