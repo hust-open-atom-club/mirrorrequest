@@ -3,5 +3,6 @@
   "rustdesk/rustdesk",
   "ip7z/7zip",
   "niXman/mingw-builds-binaries",
-  "typst/typst"
+  "typst/typst",
+  "AnInsomniacy/motrix-next"
 ]
