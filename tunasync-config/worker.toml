@@ -697,3 +697,10 @@ provider = "rsync"
 upstream = "rsync://os-repo-rsync.ewe.moe/eweos-images/"
 interval = 720
 memory_limit = "256M"
+
+[[mirrors]]
+name = "nodejs-release"
+provider = "rsync"
+upstream = "rsync://unencrypted.nodejs.org/nodejs/release/"
+rsync_options = [ "--delete-excluded" ]
+interval = 60
